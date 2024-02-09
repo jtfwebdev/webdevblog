@@ -11,14 +11,14 @@ const FetchPosts = (setPosts, setTags, setDisplayedPosts) => {
         else tags = [...tags, tagID];
     }
 
-    axios.get('https://blog-headless.jtfwebdev.co.uk/index.php/wp-json/wp/v2/posts?post_type=post')
+    axios.get(import.meta.env.VITE_WP_POSTS_URL)
     .then((res) => {
         setPosts(res.data);
         setDisplayedPosts(res.data);
     })
     .catch((err) => console.log(err))
 
-    axios.get("https://blog-headless.jtfwebdev.co.uk/index.php/wp-json/wp/v2/tags")
+    axios.get(import.meta.env.VITE_WP_TAGS_URL)
     .then((res) => {
         res.data.forEach(getTagID);
         setTags(tags);
