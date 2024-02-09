@@ -1,0 +1,38 @@
+[
+    {
+        "address": "https://react.dev/learn",
+        "tags" : [
+            "React"
+        ]
+    },
+    {
+        "address": "https://wordpress.org/documentation/",
+        "tags" : [
+            "Wordpress"
+        ]
+    },
+    {
+        "address": "https://www.typescriptlang.org/docs/",
+        "tags": [
+            "Typescript"
+        ]
+    },
+    {
+        "address": "https://tailwindcss.com/docs/utility-first",
+        "tags": [
+            "Tailwind CSS"
+        ]
+    },
+    {
+        "address": "https://www.framer.com/motion/introduction/",
+        "tags": [
+            "framer-motion"
+        ]
+    },
+    {
+        "address": "https://reactrouter.com/en/main",
+        "tags": [
+            "react-router-dom"
+        ]
+    }
+]

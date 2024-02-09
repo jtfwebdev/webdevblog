@@ -1,0 +1,9 @@
+#root {
+    width: 100%;
+    position: relative;
+}
+
+body {
+    width: 100vw;
+    max-width: 100%;
+}
