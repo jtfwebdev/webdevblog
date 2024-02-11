@@ -1,13 +1,21 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { useContext } from 'react';
+import { FetchContext } from '../../App';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 
 const BlogPosts = ({ displayedPosts, postsRef }) => {
+
+    const fetching = useContext(FetchContext);
+
     return ( 
         <div ref={postsRef} className="">
+            {fetching && Array.apply(null, Array(5)).map((_, index) => {
+                return <BlogPostSkeleton key={index} />
+            })}
             <AnimatePresence>
-                {displayedPosts.map((post) => {
+                {!fetching && displayedPosts.map((post) => {
                     return <BlogPost key={post.title.rendered} title={post.title.rendered} content={post.content.rendered} slug={post.slug} />
                 })}
             </AnimatePresence>
@@ -58,5 +66,34 @@ const BlogPost = ({title, content, slug}) => {
                 <div className="w-[80%] h-1 bg-[#E88D67] mt-[4%]"></div>
             </Link>
         </motion.div>
+    )
+}
+
+const BlogPostSkeleton = () => {
+
+    return(
+        <div role="status" className="space-y-2.5 animate-pulse max-w-lg mb-16">
+            <div className="h-4 bg-gray-200 mb-6 rounded-full dark:bg-gray-700 w-full"></div>
+            <div className="flex items-center w-full">
+                <div className="h-3.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32"></div>
+                <div className="h-3.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+                <div className="h-3.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+            </div>
+            <div className="flex items-center w-full max-w-[480px]">
+                <div className="h-3.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+                <div className="h-3.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                <div className="h-3.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+            </div>
+            <div className="flex items-center w-full max-w-[400px]">
+                <div className="h-3.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                <div className="h-3.5 ms-2 bg-gray-200 rounded-full dark:bg-gray-700 w-80"></div>
+                <div className="h-3.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+            </div>
+            <div className="flex items-center w-full max-w-[480px]">
+                <div className="h-3.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+                <div className="h-3.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                <div className="h-3.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+            </div>
+        </div>
     )
 }

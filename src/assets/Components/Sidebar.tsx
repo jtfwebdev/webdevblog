@@ -1,14 +1,36 @@
+import { FetchContext } from "../../App";
+import { useContext } from 'react';
+
 const Sidebar = ({tags, activeTag, setActiveTag, displayedPosts}) => {
+
+    const fetching = useContext(FetchContext);
 
     return ( 
         <div className="w-[100%] sticky top-0 pt-4">
             <h3 className="font-poppins text-xl text-[#E88D67] mb-10">CATEGORIES</h3>
-            <TagButtons tags={tags} setActiveTag={setActiveTag} activeTag={activeTag} displayedPosts={displayedPosts}/>
+            {fetching && <TagButtonSkeleton/>}
+            {!fetching && <TagButtons tags={tags} setActiveTag={setActiveTag} activeTag={activeTag} displayedPosts={displayedPosts}/>}
         </div>
      );
 }
 
 export default Sidebar;
+
+const TagButtonSkeleton = () => {
+    return (
+        <div>
+            <div role="status" className="animate-pulse">
+                <div className="h-8 bg-gray-200 rounded-lg mr-2 mb-2 dark:bg-gray-700 w-32 inline-block"></div>
+                <div className="h-8 bg-gray-200 rounded-lg mr-2 mb-2 dark:bg-gray-700 w-24 inline-block"></div>
+                <div className="h-8 bg-gray-200 rounded-lg mb-2 mr-2 dark:bg-gray-700 w-32 inline-block"></div>
+                <div className="h-8 bg-gray-200 rounded-lg mb-2 mr-2 dark:bg-gray-700 w-40 inline-block"></div>
+                <div className="h-8 bg-gray-200 rounded-lg mb-2 mr-2 dark:bg-gray-700 w-24 inline-block"></div>
+                <div className="h-8 bg-gray-200 rounded-lg mb-2 mr-2 dark:bg-gray-700 w-24 inline-block"></div>
+                <div className="h-8 bg-gray-200 rounded-lg mb-2 mr-2 dark:bg-gray-700 w-32 inline-block"></div>
+            </div>
+        </div>
+    )
+}
 
 const TagButtons = ({tags, setActiveTag, activeTag, displayedPosts }) => {
 

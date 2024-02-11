@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const FetchPosts = (setPosts, setTags, setDisplayedPosts) => {
+const FetchPosts = (setPosts, setTags, setDisplayedPosts, setFetching) => {
 
     let tags = [];
 
@@ -22,6 +22,7 @@ const FetchPosts = (setPosts, setTags, setDisplayedPosts) => {
     .then((res) => {
         res.data.forEach(getTagID);
         setTags(tags);
+        setFetching(false);
     })
     .catch((err) => console.log(err))
 }

@@ -1,7 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Resources from '../Resources.json';
+import { FetchContext } from '../../App';
 
 const ResourcesSidebar = ({activeBlogTags}) => {
+
+    const fetching = useContext(FetchContext);
 
     const [resources, setResources] = useState(null);
 
@@ -25,6 +28,7 @@ const ResourcesSidebar = ({activeBlogTags}) => {
                 <p className="font-poppins text-xl text-[#E88D67]">RESOURCES</p>
                 <div className="w-inherit h-[3px] rounded bg-[#E88D67] mt-[4%]"></div>
             </div>
+            {fetching && <ResourceSkeleton />}
             <div className="flex flex-col pt-12 gap-4">
                 {resources && resources.map((resource) => {
                     if (resource) return <a target="_blank" href={resource.address} className="text-[#E88D67]">{resource.address}</a>
@@ -35,3 +39,25 @@ const ResourcesSidebar = ({activeBlogTags}) => {
 }
  
 export default ResourcesSidebar;
+
+const ResourceSkeleton = () => {
+    return (
+        <div role="status" className="space-y-2.5 animate-pulse pt-12 mb-16">
+            <div className="flex items-center w-full">
+                <div className="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-32"></div>
+            </div>
+            <div className="flex items-center w-full">
+                <div className="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-64"></div>
+            </div>
+            <div className="flex items-center w-full">
+                <div className="h-5 bg-gray-300 rounded-full dark:bg-gray-600 w-64"></div>
+            </div>
+            <div className="flex items-center w-full">
+                <div className="h-5 bg-gray-300 rounded-full dark:bg-gray-600 w-32"></div>
+            </div>
+            <div className="flex items-center w-full">
+                <div className="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-64"></div>
+            </div>
+        </div>
+    )
+}
