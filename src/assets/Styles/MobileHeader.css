@@ -1,0 +1,18 @@
+.hamburger {
+    width: 46.6562px;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8%;
+}
+
+.burger-bar {
+    margin: 0 auto;
+    width: 70%;
+    height: 10%;
+    border-radius: 1000px;
+    background-color: #E88D67;
+}

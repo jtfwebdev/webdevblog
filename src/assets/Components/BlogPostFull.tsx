@@ -48,8 +48,8 @@ const BlogPostFull = ({posts, setTitle, tags, setActiveBlogTags, activeBlogTags}
     }, [blogPost])
 
     return ( 
-        <section className="flex relative z-20 ml-[5%] bg-white w-[95%]">
-            <div className="w-[60%] pl-[3%] mr-[3%] pt-[5%]">
+        <section className="flex max-[800px]:flex-col max-[800px]:ml-0 relative z-20 ml-[5%] bg-white w-[95%]">
+            <div className="w-[60%] max-[800px]:w-[100%] max-[800px]:p-[4%] pl-[3%] mr-[3%] pt-[5%]">
                 {fetching && <div className='pt-4 w-fit'>
                     <p className="font-poppins text-xl text-[#E88D67]">Posted on...</p>
                     <div className="w-inherit h-[3px] rounded bg-[#E88D67] mt-[4%]"></div>
@@ -65,7 +65,7 @@ const BlogPostFull = ({posts, setTitle, tags, setActiveBlogTags, activeBlogTags}
                     })}
                 </div>}
             </div>
-            <div className='relative flex-1 pt-[5%] pl-[3%]'>
+            <div className='relative flex-1 max-[800px]:pt-0 max-[800px]:pl-[4%] max-[800px]:mb-8 pt-[5%] pl-[3%]'>
                 <ResourcesSidebar activeBlogTags={activeBlogTags} />
             </div>
         </section>
