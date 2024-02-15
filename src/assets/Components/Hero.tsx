@@ -1,21 +1,37 @@
 import '../Styles/HeroWave.css';
+import { ScreenWidthContext } from '../../App';
+import { useContext } from 'react';
 
 const Hero = ({title, activeBlogTags}) => {
+
+    const screenWidth = useContext(ScreenWidthContext);
+
     return ( 
-        <section className="h-[50vh] bg-[#CDEAFC] relative">
-            <div className="absolute pl-24 max-[770px]:pl-8 pb-8 top-[30%] font-poppins w-[80%] max-[1040px]:w-[90%]">
-                {activeBlogTags &&
-                    <div className="flex">
+        <section className="min-h-[50vh] flex flex-col justify-center h-fit bg-[#CDEAFC] relative">
+            <div className="pl-24 pb-16 mt-[4%] h-fit font-poppins w-[80%]
+                max-[1040px]:w-[90%] max-[1040px]:mt-[10%]
+                max-[950px]:pl-16
+                max-[770px]:pl-8
+                ">
+                {activeBlogTags && (screenWidth > 800) &&
+                    <div className="flex flex-wrap">
                         {activeBlogTags.map((tag) => {
-                            return <div className="font-ubuntu text-sm font-bold bg-[#E88D67] rounded-lg px-[1%] py-[.5%] mr-[2%] mb-[2%]">{tag.tag}</div>
+                            return <div className="font-ubuntu whitespace-nowrap text-sm font-bold bg-[#E88D67] rounded-lg px-[1%] py-[.5%] mr-[2%] mb-[2%]">{tag.tag}</div>
                         })}
                     </div>
                 }
                 {!title ? <>
-                    <h3 className="text-xl text-[#25283D] max-[770px]:text-base">Welcome to my</h3>
-                    <h1 className="text-6xl max-[930px]:text-5xl max-[700px]:text-4xl max-[560px]:text-3xl text-[#25283D] font-bold">Web Development Blog</h1>
+                    <h3 className="text-xl font-bold text-[#25283D]
+                        max-[770px]:text-base
+                        ">Welcome to my</h3>
+                    <h1 className="text-6xl mb-2 text-[#25283D] font-bold
+                        max-[930px]:text-5xl
+                        max-[700px]:text-4xl
+                        max-[560px]:text-3xl
+                        ">Web Development Blog</h1>
+                    <p>Progress updates, lessons learnt, career development, tidbits...</p>
                 </> : <>
-                    <h2 className="text-5xl text-[#25283D]">
+                    <h2 className="text-5xl font-semibold text-[#25283D]">
                     {title}
                     </h2>
                 </>

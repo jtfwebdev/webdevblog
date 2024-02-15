@@ -11,9 +11,7 @@ const BlogPosts = ({ displayedPosts, postsRef }) => {
 
     return ( 
         <div ref={postsRef} className="max-[600px]:px-4">
-            {fetching && Array.apply(null, Array(5)).map((_, index) => {
-                return <BlogPostSkeleton key={index} />
-            })}
+            {fetching && <BlogPostSkeleton />}
             <AnimatePresence>
                 {!fetching && displayedPosts.map((post) => {
                     return <BlogPost key={post.title.rendered} title={post.title.rendered} content={post.content.rendered} slug={post.slug} />
@@ -71,7 +69,7 @@ const BlogPost = ({title, content, slug}) => {
 
 const BlogPostSkeleton = () => {
 
-    return(
+    return (
         <div role="status" className="space-y-2.5 animate-pulse max-w-lg mb-16">
             <div className="h-4 bg-gray-200 mb-6 rounded-full dark:bg-gray-700 w-full"></div>
             <div className="flex items-center w-full">

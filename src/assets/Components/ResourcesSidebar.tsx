@@ -31,7 +31,7 @@ const ResourcesSidebar = ({activeBlogTags}) => {
             {fetching && <ResourceSkeleton />}
             <div className="flex flex-col pt-12 gap-4">
                 {resources && resources.map((resource) => {
-                    if (resource) return <a target="_blank" href={resource.address} className="text-[#E88D67]">{resource.address}</a>
+                    if (resource) return <a target="_blank" href={resource.address} className="text-[#E88D67] text-wrap break-words">{resource.address}</a>
                 })}
             </div>
         </div>

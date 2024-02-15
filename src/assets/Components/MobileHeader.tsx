@@ -33,7 +33,8 @@ const MobileHeader = ({hamOpen, setHamOpen}) => {
     }
 
     return ( 
-        <div className="w-fit h-16 pr-4 fixed top-0 right-0 z-50 flex justify-end">
+        <div className="w-full backdrop-blur-sm bg-white bg-opacity-[.95] h-16 pr-4 fixed top-0 right-0 z-50 flex justify-between">
+            <div className="ml-[2%] text-[#E88D67] h-fit my-auto font-bold text-nowrap"><a href="/">Josh Ford Web Development</a></div>
             <div className="hamburger z-40" onClick={() => setHamOpen(!hamOpen)}>
                 <motion.div className={hamOpen ? "burger-bar clicked" : "burger-bar unclicked"} variants={burgerMenuVariants} initial="initial1" animate={hamOpen ? "open1" : "initial1"}></motion.div>
                 <motion.div className={hamOpen ? "burger-bar clicked" : "burger-bar unclicked"} variants={burgerMenuVariants} initial="initial2" animate={hamOpen ? "open2" : "initial2"}></motion.div>
