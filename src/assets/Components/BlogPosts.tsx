@@ -55,7 +55,7 @@ const BlogPost = ({title, content, slug}) => {
         }}
         exit={{ opacity: 0 }}>
             <Link to={`/blogposts/${slug}`}>
-                <motion.h3 variants={blogHoverVariants} className="font-poppins text-2xl font-bold mb-[3%]">{title}</motion.h3>
+                <motion.h3 variants={blogHoverVariants} className="font-poppins text-2xl font-bold mb-[3%]" dangerouslySetInnerHTML={{ __html: title }}></motion.h3>
                 <p className="font-ubuntu mb-[2%]" dangerouslySetInnerHTML={{ __html: paragraph }}></p>
                 <div>
                     <motion.p variants={blogHoverVariants} className="font-ubuntu font-bold inline">Read more...</motion.p>

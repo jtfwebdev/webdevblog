@@ -31,8 +31,7 @@ const Hero = ({title, activeBlogTags}) => {
                         ">Web Development Blog</h1>
                     <p>Progress updates, lessons learnt, career development, tidbits...</p>
                 </> : <>
-                    <h2 className="text-5xl font-semibold text-[#25283D]">
-                    {title}
+                        <h2 className="text-5xl font-semibold text-[#25283D]" dangerouslySetInnerHTML={{ __html: title }}>
                     </h2>
                 </>
                 }
