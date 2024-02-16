@@ -10,7 +10,7 @@ const BlogPosts = ({ displayedPosts, postsRef }) => {
     const fetching = useContext(FetchContext);
 
     return ( 
-        <div ref={postsRef} className="max-[600px]:px-4">
+        <div ref={postsRef} className="max-[600px]:px-4 overflow-hidden">
             {fetching && <BlogPostSkeleton />}
             <AnimatePresence>
                 {!fetching && displayedPosts.map((post) => {
@@ -44,16 +44,19 @@ const BlogPost = ({title, content, slug}) => {
     return (
         <motion.div layout whileHover="hover"
         className="mb-[4%] px-[3%] max-[1040px]:mb-[8%]"
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
             opacity: {
+                delay: .3,
                 duration: .3
             },
             duration: 1,
             ease: [0, 0.71, 0.2, 1.01]
         }}
-        exit={{ opacity: 0 }}>
+        exit={{ opacity: 0, transition: {
+            duration: .3
+        }}}>
             <Link to={`/blogposts/${slug}`}>
                 <motion.h3 variants={blogHoverVariants} className="font-poppins text-2xl font-bold mb-[3%]" dangerouslySetInnerHTML={{ __html: title }}></motion.h3>
                 <p className="font-ubuntu mb-[2%]" dangerouslySetInnerHTML={{ __html: paragraph }}></p>

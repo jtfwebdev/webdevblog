@@ -25,6 +25,14 @@ function App() {
   const [activeBlogTags, setActiveBlogTags] = useState(null);
   const [hamOpen, setHamOpen] = useState(false);
 
+  useEffect(() => {
+    if (hamOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  }, [hamOpen])
+
   const postsRef = useRef();
 
   const router = createBrowserRouter(

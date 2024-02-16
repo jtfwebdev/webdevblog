@@ -7,9 +7,10 @@ const Hero = ({title, activeBlogTags}) => {
     const screenWidth = useContext(ScreenWidthContext);
 
     return ( 
-        <section className="min-h-[50vh] flex flex-col justify-center h-fit bg-[#CDEAFC] relative">
-            <div className="pl-24 pb-16 mt-[4%] h-fit font-poppins w-[80%]
-                max-[1040px]:w-[90%] max-[1040px]:mt-[10%]
+        <section className="min-h-[50vh] flex flex-col justify-center h-fit bg-[#CDEAFC] relative
+            max-[1040px]:min-h-[40vh]">
+            <div className="pl-24 pb-16 mt-[4%] pt-16 h-fit font-poppins w-[80%]
+                max-[1040px]:w-[90%]
                 max-[950px]:pl-16
                 max-[770px]:pl-8
                 ">
@@ -31,7 +32,11 @@ const Hero = ({title, activeBlogTags}) => {
                         ">Web Development Blog</h1>
                     <p>Progress updates, lessons learnt, career development, tidbits...</p>
                 </> : <>
-                        <h2 className="text-5xl font-semibold text-[#25283D]" dangerouslySetInnerHTML={{ __html: title }}>
+                        <h2 className="text-5xl font-semibold text-[#25283D]
+                            max-[930px]:text-5xl
+                            max-[700px]:text-4xl
+                            max-[560px]:text-3xl" 
+                            dangerouslySetInnerHTML={{ __html: title }}>
                     </h2>
                 </>
                 }
