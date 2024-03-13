@@ -58,17 +58,17 @@ const MobileMenuScreen = () => {
                 <motion.a variants={navLinkVars} className="mb-16" href="/">
                     Home
                 </motion.a>
-                <motion.a variants={navLinkVars} href="/">
+                <motion.h2 variants={navLinkVars}>
                     Contact me
-                </motion.a>
+                </motion.h2>
                 <div className="flex font-normal gap-8 ml-8 flex-col align-center font-[poppins] justify-around text-2xl">
-                    <motion.a variants={navLinkVars} href="/">
+                    <motion.a variants={navLinkVars} href="mailto:jtfwebdevconsultant@hotmail.com" target="_blank">
                         Email
                     </motion.a>
-                    <motion.a variants={navLinkVars} href="/">
+                    <motion.a variants={navLinkVars} href="https://github.com/jtfwebdev" target="_blank">
                         Github
                     </motion.a>
-                    <motion.a variants={navLinkVars} href="/">
+                    <motion.a variants={navLinkVars} href="https://jtfwebdev.co.uk" target="_blank">
                         Portfolio
                     </motion.a>
                 </div>
