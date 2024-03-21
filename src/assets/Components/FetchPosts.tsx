@@ -20,6 +20,7 @@ const FetchPosts = (setPosts, setTags, setDisplayedPosts, setFetching) => {
 
     axios.get(import.meta.env.VITE_WP_TAGS_URL)
     .then((res) => {
+        console.log(res.data)
         res.data.forEach(getTagID);
         setTags(tags);
         setFetching(false);
