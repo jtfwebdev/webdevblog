@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useRef, useState, createContext } from 'react';
-import { Outlet, Routes, Route, RouterProvider, createBrowserRouter, createRoutesFromElements, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import 'tailwindcss/tailwind.css';
 import FetchPosts from './assets/Components/FetchPosts';
 import Hero from './assets/Components/Hero';
