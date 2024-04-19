@@ -34,5 +34,29 @@
         "tags": [
             "react-router-dom"
         ]
+    },
+    {
+        "address": "https://github.com/axios/axios-docs",
+        "tags": [
+            "Axios"
+        ]
+    },
+    {
+        "address": "https://www.mailerlite.com/",
+        "tags": [
+            "MailerLite"
+        ]
+    },
+    {
+        "address": "https://www.php.net/docs.php",
+        "tags": [
+            "PHP"
+        ]
+    },
+    {
+        "address": "https://woocommerce.com/docs/",
+        "tags": [
+            "WooCommerce"
+        ]
     }
 ]
